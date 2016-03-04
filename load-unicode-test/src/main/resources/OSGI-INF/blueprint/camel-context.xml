@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:camel="http://camel.apache.org/schema/blueprint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+	<camelContext trace="false" id="load-unicode-test-context" xmlns="http://camel.apache.org/schema/blueprint">
+	    <route id="load-unicode-test-route-1">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/load-unicode-test-1?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: load-unicode-test-1 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest1:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-1 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-1?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-1?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-2">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/load-unicode-test-2?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: load-unicode-test-2 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest2:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-2 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-2?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-2?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-3">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-3 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest3:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-3 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-3?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-3?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-4">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-4 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>	        
+	        <to uri="sap-srfc-destination:quickstartDest4:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-4 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-4?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-4?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-5">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-5 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest5:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-5 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-5?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-5?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-6">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-6 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest6:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-6 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-6?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-6?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-7">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-7 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest7:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-7 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-7?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-7?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-8">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-8 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest8:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-8 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-8?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-8?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-9">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-9 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest9:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-9 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-9?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-9?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-10">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-10 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest10:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-10 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-10?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-10?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-11">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-11 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest11:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-11 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-11?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-11?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-12">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-12 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest12:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-12 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-12?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-12?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-13">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-13 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest13:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-13 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-13?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-13?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-14">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-14 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest14:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-14 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-14?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-14?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-15">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-15 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest15:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-15 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-15?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-15?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-16">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-16 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest16:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-16 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-16?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-16?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-17">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-17 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest17:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-17 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-17?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-17?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-18">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-18 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest18:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-18 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-18?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-18?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-19">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-19 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest19:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-19 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-19?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-19?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-20">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-20 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest20:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-20 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-20?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-20?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="load-unicode-test-route-21">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <log message="BEGIN: load-unicode-test-21 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest21:RFC_READ_TABLE"/>
+	        <log message="END: load-unicode-test-21 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/load-unicode-test-21?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/load-unicode-test-21?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	</camelContext>
+	
+	<bean id="createRfcReadTableRequest" class="org.jboss.fuse.unicode.test.CreateRfcReadTableRequest"/>
+	<bean id="printTableData" class="org.jboss.fuse.unicode.test.PrintTableData"/>
+
+	<!-- Configures the Inbound and Outbound SAP Connections -->
+	<bean id="sap-configuration"
+		class="org.fusesource.camel.component.sap.SapConnectionConfiguration">
+		<property name="destinationDataStore">
+			<map>
+				<entry key="quickstartDest1" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest2" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest3" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest4" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest5" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest6" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest7" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest8" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest9" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest10" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest11" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest12" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest13" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest14" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest15" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest16" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest17" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest18" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest19" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest20" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest21" value-ref="quickstartDestinationData" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Configures an Outbound SAP Connection -->
+	<!-- *** Please enter the connection property values for your environment 
+		*** -->
+	<bean id="quickstartDestinationData"
+		class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
+		<property name="ashost" value="${jco.client.ashost}" />
+		<property name="sysnr" value="${jco.client.sysnr}" />
+		<property name="client" value="${jco.client.client}" />
+		<property name="user" value="${jco.client.user}" />
+		<property name="passwd" value="${jco.client.passwd}" />
+		<property name="lang" value="${jco.client.lang}" />
+	</bean>
+
+</blueprint>
