@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>load-unicode-test</artifactId>
+  <artifactId>TEST_8_2_1_SWO_QUERY_OBJTYPES</artifactId>
   <packaging>bundle</packaging>
 
   <parent>
@@ -14,14 +14,15 @@
   	<artifactId>sap-certification-tests</artifactId>
   </parent>
 
-  <name>Load and Unicode Test of JBoss Fuse SAP Camel components</name>
+  <name>
+  TEST_8_2_1_SWO_QUERY_OBJTYPES</name>
   <url>http://www.jboss.org/products/fuse/overview/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-  
+
   <dependencies>
 	<dependency>
 		<groupId>org.fusesource</groupId>
@@ -55,7 +56,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>load-unicode-test</Bundle-SymbolicName>
+            <Bundle-SymbolicName>TEST_8_2_1_SWO_QUERY_OBJTYPES</Bundle-SymbolicName>
             <Import-Package>*</Import-Package>
           </instructions>
         </configuration>

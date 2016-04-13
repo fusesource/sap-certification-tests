@@ -1,10 +1,10 @@
-package org.jboss.fuse.swo.query.objtypes;
+package org.jboss.fuse.TEST_8_2_1_SWO_QUERY_OBJTYPES;
 
 import org.apache.camel.Exchange;
 import org.fusesource.camel.component.sap.SapSynchronousRfcDestinationEndpoint;
 import org.fusesource.camel.component.sap.model.rfc.Structure;
 
-public class CreateSwoQueryObjtypesRequest {
+public class CreateRequest {
 
 	public void createRequest(Exchange exchange) throws Exception {
 

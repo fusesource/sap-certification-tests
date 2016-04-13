@@ -7,7 +7,7 @@
 	<camelContext trace="false" id="TEST_8_2_1_SWO_QUERY_OBJTYPES-context" xmlns="http://camel.apache.org/schema/blueprint">
 	    <route id="TEST_8_2_1_SWO_QUERY_OBJTYPES-route">
 	    	<from uri="timer://init?repeatCount=1"/>
-	    	<to uri="bean:createSwoQueryObjtypesRequest"/>
+	    	<to uri="bean:createRequest"/>
 	        <to uri="file:work/TEST_8_2_1_SWO_QUERY_OBJTYPES?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
 	        <log message="BEGIN: TEST_8_2_1_SWO_QUERY_OBJTYPES-route ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
 	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPES"/>
@@ -16,7 +16,7 @@
 	    </route>
 	</camelContext>
 
-	<bean id="createSwoQueryObjtypesRequest" class="org.jboss.fuse.swo.query.objtypes.CreateSwoQueryObjtypesRequest"/>
+	<bean id="createRequest" class="org.jboss.fuse.TEST_8_2_1_SWO_QUERY_OBJTYPES.CreateRequest"/>
 
 	<!-- Configures the Inbound and Outbound SAP Connections -->
 	<bean id="sap-configuration"
