@@ -4,15 +4,15 @@
 	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-	<camelContext trace="false" id="swo-query-objtypes-context" xmlns="http://camel.apache.org/schema/blueprint">
-	    <route id="swo-query-objtypes-route">
+	<camelContext trace="false" id="TEST_8_2_1_SWO_QUERY_OBJTYPES-context" xmlns="http://camel.apache.org/schema/blueprint">
+	    <route id="TEST_8_2_1_SWO_QUERY_OBJTYPES-route">
 	    	<from uri="timer://init?repeatCount=1"/>
 	    	<to uri="bean:createSwoQueryObjtypesRequest"/>
-	        <to uri="file:work/swo-query-objtypes?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
-	        <log message="BEGIN: swo-query-objtypes-route ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_1_SWO_QUERY_OBJTYPES?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_1_SWO_QUERY_OBJTYPES-route ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
 	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPES"/>
-	        <log message="END: swo-query-objtypes-route ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
-	        <to uri="file:work/swo-query-objtypes?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="END: TEST_8_2_1_SWO_QUERY_OBJTYPES-route ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_1_SWO_QUERY_OBJTYPES?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
 	    </route>
 	</camelContext>
 

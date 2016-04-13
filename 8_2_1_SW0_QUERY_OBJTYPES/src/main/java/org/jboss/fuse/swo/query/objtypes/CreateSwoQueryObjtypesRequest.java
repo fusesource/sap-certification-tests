@@ -6,7 +6,7 @@ import org.fusesource.camel.component.sap.model.rfc.Structure;
 
 public class CreateSwoQueryObjtypesRequest {
 
-	public void printTableData(Exchange exchange) throws Exception {
+	public void createRequest(Exchange exchange) throws Exception {
 
 		SapSynchronousRfcDestinationEndpoint endpoint = exchange.getContext().getEndpoint("sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPES", SapSynchronousRfcDestinationEndpoint.class);
 		Structure request = endpoint.createRequest();
