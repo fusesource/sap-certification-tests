@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:camel="http://camel.apache.org/schema/blueprint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+	<camelContext trace="false" id="TEST_8_3-4_RFC_READ_TABLE-context" xmlns="http://camel.apache.org/schema/blueprint">
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-1">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-1?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-1 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest1:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-1 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-1?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-1?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-2">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-2?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-2 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest2:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-2 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-2?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-2?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-3">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-3?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-3 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest3:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-3 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-3?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-3?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-4">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-4?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-4 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>	        
+	        <to uri="sap-srfc-destination:quickstartDest4:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-4 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-4?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-4?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-5">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-5?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-5 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest5:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-5 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-5?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-5?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-6">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-6?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-6 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest6:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-6 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-6?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-6?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-7">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-7?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-7 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest7:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-7 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-7?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-7?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-8">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-8?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-8 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest8:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-8 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-8?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-8?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-9">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-9?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-9 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest9:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-9 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-9?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-9?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-10">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-10?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-10 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest10:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-10 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-10?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-10?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-11">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-11?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-11 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest11:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-11 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-11?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-11?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-12">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-12?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-12 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest12:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-12 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-12?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-12?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-13">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-13?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-13 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest13:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-13 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-13?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-13?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-14">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-14?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-14 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest14:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-14 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-14?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-14?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-15">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-15?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-15 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest15:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-15 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-15?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-15?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-16">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-16?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-16 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest16:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-16 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-16?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-16?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-17">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-17?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-17 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest17:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-17 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-17?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-17?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-18">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-18?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-18 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest18:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-18 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-18?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-18?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-19">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-19?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-19 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest19:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-19 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-19?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-19?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-20">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-20?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-20 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest20:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-20 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-20?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-20?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	    <route id="TEST_8_3-4_RFC_READ_TABLE-route-21">
+	        <from uri="timer://init?repeatCount=1"/>
+	        <to uri="bean:createRfcReadTableRequest"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-21?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_3-4_RFC_READ_TABLE-21 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest21:RFC_READ_TABLE"/>
+	        <log message="END: TEST_8_3-4_RFC_READ_TABLE-21 ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-21?fileName=response-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.xml"/>
+	        <to uri="bean:printTableData"/>
+	        <to uri="file:work/TEST_8_3-4_RFC_READ_TABLE-21?fileName=result-${date:now:yyyy-MM-dd-'T'hh-mm-ss.SSS}.txt"/>
+	    </route>
+	</camelContext>
+	
+	<bean id="createRfcReadTableRequest" class="org.jboss.fuse.unicode.test.CreateRfcReadTableRequest"/>
+	<bean id="printTableData" class="org.jboss.fuse.unicode.test.PrintTableData"/>
+
+	<!-- Configures the Inbound and Outbound SAP Connections -->
+	<bean id="sap-configuration"
+		class="org.fusesource.camel.component.sap.SapConnectionConfiguration">
+		<property name="destinationDataStore">
+			<map>
+				<entry key="quickstartDest1" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest2" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest3" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest4" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest5" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest6" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest7" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest8" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest9" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest10" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest11" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest12" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest13" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest14" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest15" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest16" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest17" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest18" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest19" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest20" value-ref="quickstartDestinationData" />
+				<entry key="quickstartDest21" value-ref="quickstartDestinationData" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Configures an Outbound SAP Connection -->
+	<!-- *** Please enter the connection property values for your environment 
+		*** -->
+	<bean id="quickstartDestinationData"
+		class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
+		<property name="ashost" value="${jco.client.ashost}" />
+		<property name="sysnr" value="${jco.client.sysnr}" />
+		<property name="client" value="${jco.client.client}" />
+		<property name="user" value="${jco.client.user}" />
+		<property name="passwd" value="${jco.client.passwd}" />
+		<property name="lang" value="${jco.client.lang}" />
+	</bean>
+
+</blueprint>

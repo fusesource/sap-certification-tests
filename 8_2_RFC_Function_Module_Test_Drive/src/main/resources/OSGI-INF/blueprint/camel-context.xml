@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:camel="http://camel.apache.org/schema/blueprint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+	<camelContext trace="false" id="RFC_Function_Module_Test_Drive-context" xmlns="http://camel.apache.org/schema/blueprint">
+	    <route id="RFC_Function_Module_Test_Drive-route">
+	    	<from uri="timer://init?repeatCount=1"/>
+	    	
+	    	<to uri="bean:queryObjectTypesRequest"/>
+	        <to uri="file:work/TEST_8_2_1_SWO_QUERY_OBJTYPES?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_1_SWO_QUERY_OBJTYPES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPES"/>
+	        <log message="END: TEST_8_2_1_SWO_QUERY_OBJTYPES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_1_SWO_QUERY_OBJTYPES?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        
+	    	<to uri="bean:queryAPIObjectTypesRequest"/>
+	        <to uri="file:work/TEST_8_2_2_SWO_QUERY_API_OBJTYPES?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_2_SWO_QUERY_API_OBJTYPES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_API_OBJTYPES"/>
+	        <log message="END: TEST_8_2_2_SWO_QUERY_API_OBJTYPES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_2_SWO_QUERY_API_OBJTYPES?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:rpyBorTreeInitRequest"/>
+	        <to uri="file:work/TEST_8_2_3_RPY_BOR_TREE_INIT?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_3_RPY_BOR_TREE_INIT ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:RPY_BOR_TREE_INIT"/>
+	        <log message="END: TEST_8_2_3_RPY_BOR_TREE_INIT ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_3_RPY_BOR_TREE_INIT?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:rpyBorTreeExpandRequest"/>
+	        <to uri="file:work/TEST_8_2_4_RPY_BOR_TREE_EXPAND?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_4_RPY_BOR_TREE_EXPAND ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:RPY_BOR_TREE_EXPAND"/>
+	        <log message="END: TEST_8_2_4_RPY_BOR_TREE_EXPAND ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_4_RPY_BOR_TREE_EXPAND?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        
+	    	<to uri="bean:queryObjectTypeInfoRequest"/>
+	        <to uri="file:work/TEST_8_2_5_SWO_QUERY_OBJTYPE_INFO?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_5_SWO_QUERY_OBJTYPE_INFO ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPE_INFO"/>
+	        <log message="END: TEST_8_2_5_SWO_QUERY_OBJTYPE_INFO ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_5_SWO_QUERY_OBJTYPE_INFO?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        
+	    	<to uri="bean:queryObjectTypeInfosRequest"/>
+	        <to uri="file:work/TEST_8_2_6_SWO_QUERY_OBJTYPE_INFOS?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_6_SWO_QUERY_OBJTYPE_INFOS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPE_INFOS"/>
+	        <log message="END: TEST_8_2_6_SWO_QUERY_OBJTYPE_INFOS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_6_SWO_QUERY_OBJTYPE_INFOS?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryObjectTypeDocuRequest"/>
+	        <to uri="file:work/TEST_8_2_7_SWO_QUERY_OBJTYPE_DOCU?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_7_SWO_QUERY_OBJTYPE_DOCU ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_OBJTYPE_DOCU"/>
+	        <log message="END: TEST_8_2_7_SWO_QUERY_OBJTYPE_DOCU ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_7_SWO_QUERY_OBJTYPE_DOCU?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryBaseDataRequest"/>
+	        <to uri="file:work/TEST_8_2_8_SWO_QUERY_BASEDATA?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_8_SWO_QUERY_BASEDATA ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_BASEDATA"/>
+	        <log message="END: TEST_8_2_8_SWO_QUERY_BASEDATA ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_8_SWO_QUERY_BASEDATA?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryKeyFieldsRequest"/>
+	        <to uri="file:work/TEST_8_2_9_SWO_QUERY_KEYFIELDS?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_9_SWO_QUERY_KEYFIELDS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_KEYFIELDS"/>
+	        <log message="END: TEST_8_2_9_SWO_QUERY_KEYFIELDS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_9_SWO_QUERY_KEYFIELDS?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryAttributesRequest"/>
+	        <to uri="file:work/TEST_8_2_10_SWO_QUERY_ATTRIBUTES?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_10_SWO_QUERY_ATTRIBUTES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_ATTRIBUTES"/>
+	        <log message="END: TEST_8_2_10_SWO_QUERY_ATTRIBUTES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_10_SWO_QUERY_ATTRIBUTES?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryMethodsRequest"/>
+	        <to uri="file:work/TEST_8_2_11_SWO_QUERY_METHODS?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_11_SWO_QUERY_METHODS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_METHODS"/>
+	        <log message="END: TEST_8_2_11_SWO_QUERY_METHODS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_11_SWO_QUERY_METHODS?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryEventsRequest"/>
+	        <to uri="file:work/TEST_8_2_12_SWO_QUERY_EVENTS?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_12_SWO_QUERY_EVENTS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_EVENTS"/>
+	        <log message="END: TEST_8_2_12_SWO_QUERY_EVENTS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_12_SWO_QUERY_EVENTS?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryParametersRequest"/>
+	        <to uri="file:work/TEST_8_2_13_SWO_QUERY_PARAMETERS?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_13_SWO_QUERY_PARAMETERS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_PARAMETERS"/>
+	        <log message="END: TEST_8_2_13_SWO_QUERY_PARAMETERS ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_13_SWO_QUERY_PARAMETERS?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:queryReturnCodesRequest"/>
+	        <to uri="file:work/TEST_8_2_14_SWO_QUERY_RETURNCODES?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_14_SWO_QUERY_RETURNCODES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_QUERY_RETURNCODES"/>
+	        <log message="END: TEST_8_2_14_SWO_QUERY_RETURNCODES ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_14_SWO_QUERY_RETURNCODES?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:fieldInfoGetRequest"/>
+	        <to uri="file:work/TEST_8_2_15_DDIF_FIELDINFO_GET?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_15_DDIF_FIELDINFO_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:DDIF_FIELDINFO_GET"/>
+	        <log message="END: TEST_8_2_15_DDIF_FIELDINFO_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_15_DDIF_FIELDINFO_GET?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:typeInfoGetRequest"/>
+	        <to uri="file:work/TEST_8_2_16_SWO_TYPE_INFO_GET?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_16_SWO_TYPE_INFO_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_TYPE_INFO_GET"/>
+	        <log message="END: TEST_8_2_16_SWO_TYPE_INFO_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_16_SWO_TYPE_INFO_GET?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:createRequest"/>
+	        <to uri="file:work/TEST_8_2_17_SWO_CREATE?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_17_SWO_CREATE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_CREATE?stateful=true"/>
+	        <to uri="file:work/TEST_8_2_17_SWO_CREATE?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="END: TEST_8_2_17_SWO_CREATE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+
+	    	<to uri="bean:invokeRequest"/>
+	        <to uri="file:work/TEST_8_2_18_SWO_INVOKE?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_18_SWO_INVOKE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_INVOKE"/>
+	        <log message="END: TEST_8_2_18_SWO_INVOKE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_18_SWO_INVOKE?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:setObjectIdRequest"/>
+	        <to uri="file:work/TEST_8_2_21_SWO_OBJECT_ID_SET?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_21_SWO_OBJECT_ID_SET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_OBJECT_ID_SET"/>
+	        <log message="END: TEST_8_2_21_SWO_OBJECT_ID_SET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_21_SWO_OBJECT_ID_SET?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:getObjectIdRequest"/>
+	        <to uri="file:work/TEST_8_2_20_SWO_OBJECT_ID_GET?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_20_SWO_OBJECT_ID_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_OBJECT_ID_GET"/>
+	        <log message="END: TEST_8_2_20_SWO_OBJECT_ID_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_20_SWO_OBJECT_ID_GET?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:freeRequest"/>
+	        <to uri="file:work/TEST_8_2_19_SWO_FREE?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_19_SWO_FREE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_FREE"/>
+	        <log message="END: TEST_8_2_19_SWO_FREE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_19_SWO_FREE?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:setEnvironmentRequest"/>
+	        <to uri="file:work/TEST_8_2_22_SWO_SET_ENVIRONMENT?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_22_SWO_SET_ENVIRONMENT ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:SWO_SET_ENVIRONMENT"/>
+	        <log message="END: TEST_8_2_22_SWO_SET_ENVIRONMENT ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_22_SWO_SET_ENVIRONMENT?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:rfcFunctionDocuGetRequest"/>
+	        <to uri="file:work/TEST_8_2_23_RFC_FUNCTION_DOCU_GET?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_23_RFC_FUNCTION_DOCU_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:RFC_FUNCTION_DOCU_GET"/>
+	        <log message="END: TEST_8_2_23_RFC_FUNCTION_DOCU_GET ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_23_RFC_FUNCTION_DOCU_GET?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    	<to uri="bean:rfcGetFunctionInterfaceRequest"/>
+	        <to uri="file:work/TEST_8_2_25_RFC_GET_FUNCTION_INTERFACE?fileName=request-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+	        <log message="BEGIN: TEST_8_2_25_RFC_GET_FUNCTION_INTERFACE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="sap-srfc-destination:quickstartDest:RFC_GET_FUNCTION_INTERFACE"/>
+	        <log message="END: TEST_8_2_25_RFC_GET_FUNCTION_INTERFACE ${date:now:yyyy-MM-dd-'T'-hh:mm:ss.SSS}" loggingLevel="INFO"/>
+	        <to uri="file:work/TEST_8_2_25_RFC_GET_FUNCTION_INTERFACE?fileName=response-${date:now:yyyy-MM-dd-'T'-hh-mm-ss.SSS}.xml"/>
+
+	    </route>
+	</camelContext>
+
+	<bean id="queryObjectTypesRequest" class="org.jboss.fuse.TEST_8_2_1_SWO_QUERY_OBJTYPES.CreateRequest"/>
+	<bean id="queryAPIObjectTypesRequest" class="org.jboss.fuse.TEST_8_2_2_SWO_QUERY_API_OBJTYPES.CreateRequest"/>
+	<bean id="rpyBorTreeInitRequest" class="org.jboss.fuse.TEST_8_2_3_RPY_BOR_TREE_INIT.CreateRequest"/>
+	<bean id="rpyBorTreeExpandRequest" class="org.jboss.fuse.TEST_8_2_4_RPY_BOR_TREE_EXPAND.CreateRequest"/>
+	<bean id="queryObjectTypeInfoRequest" class="org.jboss.fuse.TEST_8_2_5_SWO_QUERY_OBJTYPE_INFO.CreateRequest"/>
+	<bean id="queryObjectTypeInfosRequest" class="org.jboss.fuse.TEST_8_2_6_SWO_QUERY_OBJTYPE_INFOS.CreateRequest"/>
+	<bean id="queryObjectTypeDocuRequest" class="org.jboss.fuse.TEST_8_2_7_SWO_QUERY_OBJTYPE_DOCU.CreateRequest"/>
+	<bean id="queryBaseDataRequest" class="org.jboss.fuse.TEST_8_2_8_SWO_QUERY_BASEDATA.CreateRequest"/>
+	<bean id="queryKeyFieldsRequest" class="org.jboss.fuse.TEST_8_2_9_SWO_QUERY_KEYFIELDS.CreateRequest"/>
+	<bean id="queryAttributesRequest" class="org.jboss.fuse.TEST_8_2_10_SWO_QUERY_ATTRIBUTES.CreateRequest"/>
+	<bean id="queryMethodsRequest" class="org.jboss.fuse.TEST_8_2_11_SWO_QUERY_METHODS.CreateRequest"/>
+	<bean id="queryEventsRequest" class="org.jboss.fuse.TEST_8_2_12_SWO_QUERY_EVENTS.CreateRequest"/>
+	<bean id="queryParametersRequest" class="org.jboss.fuse.TEST_8_2_13_SWO_QUERY_PARAMETERS.CreateRequest"/>
+	<bean id="queryReturnCodesRequest" class="org.jboss.fuse.TEST_8_2_14_SWO_QUERY_RETURNCODES.CreateRequest"/>
+	<bean id="fieldInfoGetRequest" class="org.jboss.fuse.TEST_8_2_15_DDIF_FIELDINFO_GET.CreateRequest"/>
+	<bean id="typeInfoGetRequest" class="org.jboss.fuse.TEST_8_2_16_SWO_TYPE_INFO_GET.CreateRequest"/>
+	<bean id="createRequest" class="org.jboss.fuse.TEST_8_2_17_SWO_CREATE.CreateRequest"/>
+	<bean id="invokeRequest" class="org.jboss.fuse.TEST_8_2_18_SWO_INVOKE.CreateRequest"/>
+	<bean id="freeRequest" class="org.jboss.fuse.TEST_8_2_19_SWO_FREE.CreateRequest"/>
+	<bean id="getObjectIdRequest" class="org.jboss.fuse.TEST_8_2_20_SWO_OBJECT_ID_GET.CreateRequest"/>
+	<bean id="setObjectIdRequest" class="org.jboss.fuse.TEST_8_2_21_SWO_OBJECT_ID_SET.CreateRequest"/>
+	<bean id="setEnvironmentRequest" class="org.jboss.fuse.TEST_8_2_22_SWO_SET_ENVIRONMENT.CreateRequest"/>
+	<bean id="rfcFunctionDocuGetRequest" class="org.jboss.fuse.TEST_8_2_23_RFC_FUNCTION_DOCU_GET.CreateRequest"/>
+	<bean id="rfcGetFunctionInterfaceRequest" class="org.jboss.fuse.TEST_8_2_25_RFC_GET_FUNCTION_INTERFACE.CreateRequest"/>
+
+	<!-- Configures the Inbound and Outbound SAP Connections -->
+	<bean id="sap-configuration"
+		class="org.fusesource.camel.component.sap.SapConnectionConfiguration">
+		<property name="destinationDataStore">
+			<map>
+				<entry key="quickstartDest" value-ref="quickstartDestinationData" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Configures an Outbound SAP Connection -->
+	<!-- *** Please enter the connection property values for your environment 
+		*** -->
+	<bean id="quickstartDestinationData"
+		class="org.fusesource.camel.component.sap.model.rfc.impl.DestinationDataImpl">
+		<property name="ashost" value="${jco.client.ashost}" />
+		<property name="sysnr" value="${jco.client.sysnr}" />
+		<property name="client" value="${jco.client.client}" />
+		<property name="user" value="${jco.client.user}" />
+		<property name="passwd" value="${jco.client.passwd}" />
+		<property name="lang" value="${jco.client.lang}" />
+	</bean>
+
+</blueprint>
